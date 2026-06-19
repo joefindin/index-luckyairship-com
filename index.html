@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>幸运飞艇 · 站点介绍与产品说明</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background-color: #f4f6fa;
+            color: #1e2a3a;
+            line-height: 1.6;
+        }
+
+        /* 深色头图 */
+        .hero {
+            background: linear-gradient(145deg, #0b1928, #162b3d);
+            color: #eef2f7;
+            padding: 4.5rem 1.5rem 3.8rem;
+            text-align: center;
+            border-bottom: 4px solid #3f8cbf;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            word-break: break-word;
+        }
+
+        .hero .subhead {
+            font-size: 1.15rem;
+            color: #b3ccdf;
+            max-width: 640px;
+            margin: 0 auto 1.5rem;
+            font-weight: 300;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(63, 140, 191, 0.18);
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            border: 1px solid #4d7f9f;
+            color: #d3e3f0;
+            backdrop-filter: blur(2px);
+        }
+
+        /* 正文浅色区 */
+        .content-wrapper {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.8rem 1.8rem 4rem;
+        }
+
+        .intro-card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2.4rem 2rem;
+            box-shadow: 0 10px 30px -12px rgba(0, 20, 40, 0.08);
+            margin-bottom: 2.8rem;
+            border: 1px solid #e9edf2;
+        }
+
+        .intro-card p {
+            font-size: 1.05rem;
+            margin-bottom: 1.2rem;
+            color: #26394d;
+        }
+
+        .intro-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-link {
+            color: #1d6f9e;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1.5px dotted #7bb3d4;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .highlight-link:hover {
+            color: #0b4b72;
+            border-bottom-color: #1d6f9e;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.8rem;
+            margin: 2.5rem 0 2rem;
+        }
+
+        .feature-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #e6ecf3;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 26px -10px rgba(26, 67, 113, 0.10);
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #0a253a;
+            margin-bottom: 0.6rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.98rem;
+            color: #314a5e;
+            line-height: 1.6;
+        }
+
+        .usage-section {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 2.2rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+            margin: 2.2rem 0;
+            border: 1px solid #e2eaf2;
+        }
+
+        .usage-section h2 {
+            font-size: 1.6rem;
+            font-weight: 450;
+            color: #0d263d;
+            margin-bottom: 1rem;
+            border-left: 4px solid #3f8cbf;
+            padding-left: 1rem;
+        }
+
+        .usage-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .usage-section li {
+            padding: 0.5rem 0 0.5rem 1.8rem;
+            position: relative;
+            font-size: 1.02rem;
+            color: #1f3547;
+        }
+
+        .usage-section li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #3f8cbf;
+            font-size: 1.2rem;
+        }
+
+        .faq-mini {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 2rem 2rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.01);
+            border: 1px solid #e2eaf2;
+            margin: 2.2rem 0;
+        }
+
+        .faq-mini details {
+            border-bottom: 1px solid #e2eaf2;
+            padding: 0.9rem 0;
+        }
+
+        .faq-mini details:last-child {
+            border-bottom: 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            font-size: 1.08rem;
+            color: #0f2b42;
+            cursor: pointer;
+            padding: 0.2rem 0;
+            transition: color 0.15s;
+        }
+
+        .faq-mini summary:hover {
+            color: #1d6f9e;
+        }
+
+        .faq-mini details p {
+            margin: 0.8rem 0 0.2rem 1rem;
+            color: #334f65;
+            font-size: 0.98rem;
+            line-height: 1.6;
+        }
+
+        .note-box {
+            background: #e9f0f7;
+            border-radius: 18px;
+            padding: 1.2rem 1.6rem;
+            font-size: 0.98rem;
+            color: #1f3b50;
+            border-left: 4px solid #6ea6cc;
+            margin: 2rem 0 1rem;
+        }
+
+        .note-box strong {
+            color: #0b314b;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #688195;
+            border-top: 1px solid #dce3ec;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        .footer-note a {
+            color: #2c6e93;
+            text-decoration: none;
+            border-bottom: 1px solid #b3c9db;
+        }
+
+        .footer-note a:hover {
+            border-bottom-color: #2c6e93;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero {
+                padding: 3rem 1rem 2.8rem;
+            }
+            .content-wrapper {
+                padding: 1.8rem 1rem 3rem;
+            }
+            .intro-card,
+            .usage-section,
+            .faq-mini {
+                padding: 1.5rem 1.2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 知识型基调 -->
+    <header class="hero">
+        <h1>幸运飞艇 · 产品说明</h1>
+        <p class="subhead">数据驱动 · 信息聚合 · 理性参考 —— 围绕站点定位与使用场景的简明介绍</p>
+        <span class="tagline">站点索引 | 功能摘要 | 可信说明</span>
+    </header>
+
+    <main class="content-wrapper">
+
+        <!-- 摘要+站点介绍段落，嵌入链接 -->
+        <div class="intro-card">
+            <p>
+                <a href="https://index-luckyairship.com" class="highlight-link">幸运飞艇</a> 
+                是一个聚焦于特定数字与趋势信息整合的平台。其初衷在于为关注相关数据动态的用户提供结构化的参考页面，帮助浏览者快速了解某一类数字模型下的常见区间与特征。站点内容以信息汇总和客观展示为主，不涉及实时投注、资金交易或预测承诺。
+            </p>
+            <p>
+                从技术架构来看，该页面采用了轻量化的前端设计，强调信息获取的便捷性。无论用户是初次接触还是已有一定经验，都能在简洁的界面中找到清晰的模块划分。值得说明的是，网站本身不存储任何敏感数据，所有呈现内容均基于公开统计逻辑与模式归纳。
+            </p>
+        </div>
+
+        <!-- 亮点区域：卡片式特点 -->
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3>结构化摘要</h3>
+                <p>将复杂走势拆解为可读性高的段落与数据区间，降低理解门槛。首页即呈现核心指向，节省筛选时间。</p>
+            </div>
+            <div class="feature-card">
+                <h3>场景适配</h3>
+                <p>适用于个人学习、趋势观察、策略复盘等非实时场景。页面保持适度更新，反映常见统计形态。</p>
+            </div>
+            <div class="feature-card">
+                <h3>轻量访问</h3>
+                <p>无需注册或下载，直接通过浏览器即可阅览。页面体积小，响应迅速，移动端与桌面端均有良好体验。</p>
+            </div>
+        </div>
+
+        <!-- 使用建议 -->
+        <div class="usage-section">
+            <h2>使用建议</h2>
+            <ul>
+                <li>将 <a href="https://index-luckyairship.com" class="highlight-link">幸运飞艇</a> 作为信息参考之一，结合自身判断与其他来源交叉验证。</li>
+                <li>建议在稳定的网络环境下访问，以确保页面样式与数据图表正常加载。</li>
+                <li>页面内容主要用于了解常见的数字分布特征，不宜作为单一决策依据。</li>
+                <li>初次浏览时可先通读首页摘要，再根据需要深入具体模块。</li>
+                <li>保持理性态度，避免将统计规律等同于必然结果。</li>
+            </ul>
+        </div>
+
+        <!-- FAQ 摘要 风格克制 -->
+        <div class="faq-mini">
+            <details>
+                <summary>这个站点提供实时数据吗？</summary>
+                <p>页面数据基于统计周期汇总，并非毫秒级实时流。更新频率以信息完整性为首要考虑，适合非即时场景下的回顾与学习。</p>
+            </details>
+            <details>
+                <summary>访问安全性如何？</summary>
+                <p>网站采用标准 HTTPS 连接，前端不收集访客个人信息。用户只需正常浏览，无需担心隐私泄露。建议用户保持浏览器与系统为最新版本。</p>
+            </details>
+            <details>
+                <summary>为什么强调“可信但克制”？</summary>
+                <p>任何信息平台都应避免绝对化表述。本站呈现的内容均基于可验证的统计逻辑，但不代表对未来结果有任何保证。理性参考，独立判断，才是有效使用方式。</p>
+            </details>
+        </div>
+
+        <!-- 可信说明 + 场景 -->
+        <div class="note-box">
+            <strong>可信访问说明：</strong> 
+            本站定位为信息介绍页面，不包含任何形式的自动跳转、诱导分享或隐藏脚本。所有链接与内容均明确可见。如果你希望进一步了解数字趋势与分布逻辑，可以直接访问 
+            <a href="https://index-luckyairship.com" class="highlight-link">幸运飞艇</a> 
+            浏览完整信息。 页面建议在常规浏览器中打开，避免使用过于老旧的渲染引擎。
+        </div>
+
+        <!-- 收尾段落 — 自然承接 -->
+        <p style="margin-top: 1.2rem; color: #2f4a5e; font-size: 1.02rem; background: #ffffff; padding: 1.2rem 1.8rem; border-radius: 18px; border: 1px solid #e2eaf2;">
+            总而言之，<a href="https://index-luckyairship.com" class="highlight-link">幸运飞艇</a> 
+            适合那些对数字规律保持好奇心、同时希望避免信息过载的用户。其内容架构偏向知识整理而非商业推广，在浏览时你能够感受到一种平实、直接的信息传递方式。我们希望每位访客都能带着清晰的预期使用该站点，并将其作为思辨过程中的一份参考。
+        </p>
+
+        <div class="footer-note">
+            <span>© 信息说明页 · 仅供介绍参考</span><br>
+            <span style="font-size:0.85rem; color:#7b92a3;">内容方向：产品说明式 · 知识型语气</span>
+        </div>
+
+    </main>
+
+</body>
+</html>
